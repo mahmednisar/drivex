@@ -78,15 +78,8 @@ WSGI_APPLICATION = 'drive.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-         'OPTIONS': {
-             'sql_mode': 'traditional',
-         },
-         'NAME': 'drive',
-         'USER': 'root',
-         'PASSWORD': '1998!Abdul@1998',
-         'HOST': 'localhost',
-         'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 
 }
