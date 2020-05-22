@@ -1,0 +1,116 @@
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+{% block content %}
+         
+
+
+<div class="destination_details_info">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-9">
+                 <img src="/media/{{page_obj.0.destination_image}}"  class="col-md-12"alt="{{i.destination_name}}">
+        <div class="row justify-content-center my-2">
+            <div class="col-lg-6 ">      
+                <h3>{{page_obj.0.destination_name}}</h3>
+                <p>({{page_obj.0.destination_country}})</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="more_place_btn text-center">
+                    <a class="boxed-btn4" href="#">Book Now</a>
+                </div> 
+            </div>
+            </div>
+                
+                <div class="text-justify mb-5">
+                {% autoescape off %}
+                {{page_obj.0.destination_description}}
+                {% endautoescape %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- newletter_area_start  -->
+<div class="newletter_area overlay">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-10">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="newsletter_text">
+                            <h4>Subscribe Our Newsletter</h4>
+                            <p>
+                                Subscribe newsletter to get offers and about
+                                new places to discover.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="mail_form">
+                            <div class="row no-gutters">
+                                <div class="col-lg-9 col-md-8">
+                                    <div class="newsletter_field">
+                                        <input type="email" placeholder="Your mail">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="newsletter_btn">
+                                        <button class="boxed-btn4 " type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- newletter_area_end  -->
+
+<div class="popular_places_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb_70">
+                    <h3>More Places</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in destination  %}
+            <div class="col-lg-4 col-md-6">
+                <div class="single_place">
+                    <div class="thumb">
+                        <img src="/media/{{i.destination_image}}" alt="{{i.destination_name}}">
+                           <a href="#" class="prise">$ {{i.destination_cost}}</a>
+                    </div>
+                    <div class="place_info">
+                          <a href="/destinations/view/{{i.id}}"><h3>{{i.destination_name}}</h3></a>
+                        <p>{{i.destination_state}}, {{i.destination_country}}</p>
+                                
+                        <div class="rating_days d-flex justify-content-between">
+                            <span class="d-flex justify-content-center align-items-center">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </span>
+                            <div class="days">
+                                        <i class="fa fa-clock-o"></i>
+                                        <a href="#">{{i.destination_time}}</a>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

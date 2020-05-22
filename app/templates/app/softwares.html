@@ -1,0 +1,76 @@
+﻿{% extends "app/layout.html" %}
+  {% load staticfiles %}
+{% block content %}
+
+
+
+
+  <main id="main">
+     <section class="breadcrumbs">
+      <div class="container">
+{% csrf_token %}
+        <div class="d-flex justify-content-between align-items-center">
+         Softwares
+          <ol> Follow on &nbsp;
+            <li><a href="https://t.me/drivelinkss" target="_blank" class="linkedin"><i class="bx bxl-telegram"> </i></a></li>
+            <li><a href="https://instagram.com/drivelinkss" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a></li>
+             <li><a href="https://facebook.com/drivelinkss" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a></li>
+     
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section class="services">
+      <div class="container">
+          <section class="breadcrumbs">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          
+           {{heading}} - {{title}}
+        </div>
+
+      </div>
+    </section>
+        <div class="row">
+            {% for i in page_obj  %}
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+              <a href="/softwares/view/{{i.id}}">
+            <div class="icon-box icon-box-pink">
+              <img src="/media/{{i.software_image}}" class="img-fluid" alt="">
+              <h4 class="title">{{i.software_name}}</h4>
+             
+                
+            </div> 
+                  </a>
+          </div>
+            {% endfor %}
+          
+        </div>
+          </div>
+    </section><!-- End Services Section -->
+
+       <nav aria-label="Page navigation mb-5">
+          <div class="pagination justify-content-center mb-5">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+       </nav>
+  </main><!-- End #main -->
+
+{% endblock %}

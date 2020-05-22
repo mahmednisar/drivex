@@ -1,0 +1,47 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<div class="row">
+    	
+    <div class="col-md-3  mx-auto  ">
+        <section id="loginForm">
+            <form action="." method="post" class="col-md-12 border  border-secondary text-center">
+                {% csrf_token %}
+                <h4 class="text-center my-3" >Sign In </h4>
+               
+                <div class="form-group">
+                    <div class="col-md-12">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-12">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p class="validation-summary-errors">Please enter a correct user name and password.</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+  
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

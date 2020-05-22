@@ -1,0 +1,129 @@
+﻿{% extends "app/layout.html" %}
+  {% load staticfiles %}
+{% block content %}
+
+
+
+ 
+
+ <main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Software Details</h2>
+
+          <ol>
+            <li> {{page_obj.0.software_name}}</li>
+           
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section class="blog" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+              <div class="entry-img">
+                <img src="/media/{{page_obj.0.software_image}}" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                {{page_obj.0.software_name}}
+              </h2>
+
+           <!--  <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i>{{page_obj.0.software_year.year}} </li>
+                 
+                </ul>
+              </div>--> 
+
+              <div class="entry-content">
+                <p>
+                  {{page_obj.0.software_description}}
+                </p>
+                  <a href="{{page_obj.0.software_url}}" target="_blank"><h3 class="badge badge-success my-2 text-center p-3"><i class='bx bx-download' ></i> Download Now </h3></a>
+               
+
+              </div>
+
+              <div class="entry-footer clearfix">
+                <div class="float-left">
+                  
+                  <i class="icofont-tags"></i>
+                  <ul class="tags">
+                    <li><a href="#">{{page_obj.0.software_subcategory}}</a></li>
+                    
+                  </ul>
+                </div>
+
+               
+
+              </div>
+
+            </article><!-- End blog entry -->
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Other Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="{% url 'ProgrammingwithC' %}">Programming with C <span>(25)</span></a></li>
+                  <li><a href="{% url 'ProgrammingwithC++' %}">Programming with C++  <span>(12)</span></a></li>
+                  <li><a href="{% url 'ProgrammingwithC#' %}">Programming with C#  <span>(5)</span></a></li>
+                  <li><a href="{% url 'ProgrammingwithJava' %}">Programming with Java <span>(22)</span></a></li>
+                  <li><a href="{% url 'ProgrammingwithPython' %}">Programming with Python  <span>(8)</span></a></li>
+                  <li><a href="{% url 'CompititiveBooks' %}">Compititive Books <span>(14)</span></a></li>
+                  <li><a href="{% url 'ComicsBooks' %}">Comics <span>(14)</span></a></li>
+                </ul>
+
+              </div><!-- End sidebar categories-->
+
+           <!--    
+               <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">App</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">Mac</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Office</a></li>
+                  <li><a href="#">Creative</a></li>
+                  <li><a href="#">Studio</a></li>
+                  <li><a href="#">Smart</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+
+              </div>
+              -->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div><!-- End row -->
+
+      </div><!-- End container -->
+
+    </section><!-- End Blog Section -->
+
+  </main>
+
+{% endblock %}

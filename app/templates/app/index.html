@@ -1,0 +1,74 @@
+{% extends "app/layout.html" %}
+  {% load staticfiles %}
+{% block content %}
+
+
+
+
+  <main id="main">
+     <section class="breadcrumbs">
+      <div class="container">
+{% csrf_token %}
+        <div class="d-flex justify-content-between align-items-center">
+           {{ forms.search }} <input type="submit" value="Search" class="btn btn-default" />
+          <ol> Follow on &nbsp;
+            <li><a href="https://t.me/{{user}}" target="_blank" class="linkedin"><i class="bx bxl-telegram"> </i></a></li>
+            <li><a href="https://instagram.com/{{user}}" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a></li>
+             <li><a href="https://facebook.com/{{user}}" target="_blank" class="instagram"><i class="bx bxl-facebook"></i></a></li>
+     
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section class="services">
+      <div class="container">
+       
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up"> 
+              <a href="{% url 'books' %}">
+            <div class="icon-box icon-box-pink">
+              <img src="{% static 'assets/img/books.jpg' %}" class="img-fluid" alt="">
+              <h4 class="title">Books</h4>
+              <p class="description">Vast Collection of Books</p>
+            </div></a>
+          </div>
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+             <a href="{% url 'tutorials' %}">
+            <div class="icon-box icon-box-pink">
+              <img src="{% static 'assets/img/tutorials.jpg' %}" class="img-fluid" alt="">
+              <h4 class="title">Tutorials</h4>
+              <p class="description">Vast Collection of Tutorials</p>
+            </div></a>
+          </div>
+             <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+            <a href="{% url 'softwares' %}">
+            <div class="icon-box icon-box-pink">
+              <img src="{% static 'assets/img/softwares.jpg' %}" class="img-fluid" alt="">
+              <h4 class="title">Softwares</h4>
+              <p class="description">Vast Collection of Softwares</p>
+            </div></a>
+          </div>
+             <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+            <a href="{% url 'movies' %}">
+            <div class="icon-box icon-box-pink">
+              <img src="{% static 'assets/img/moives.jpg' %}" class="img-fluid" alt="">
+              <h4 class="title">Movies</h4>
+              <p class="description">Vast Collection of Movies</p>
+            </div>
+                </a>
+          </div>
+
+        
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+  
+  </main><!-- End #main -->
+
+{% endblock %}
