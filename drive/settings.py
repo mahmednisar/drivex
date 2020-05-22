@@ -25,7 +25,7 @@ SECRET_KEY = '592bafa1-922d-4fb2-8463-f8b04138e934'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','https://drivestuff.herokuapp.com/']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
