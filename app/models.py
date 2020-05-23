@@ -5,67 +5,64 @@ Definition of models.
 from django.db import models
 from multiselectfield import MultiSelectField
 
-CATEGORIES = (  
-    ( 'c','Programming With C'),
-    ( 'cpp','Programming With C++'),
-    ( 'csharp','Programming With C#'),
-    ( 'java','Programming With Java'),
-    ( 'python','Programming With Python'),
-    ( 'compitition','Compitition'),
-    ( 'comics','Comics'),
-)
 
-GENERE = (
-    ( 'Action','Action'),
-    ( 'Adventure','Adventure'),
-    ( 'Comedy','Comedy'),
-    ( 'Crime','Crime'),
-    ( 'Drama','Drama'),
-    ( 'Epics','Epics'),
-    ( 'Horror','Horror'),
-    ( 'Musicals','Musicals (Dance)'),
-    ( 'Science','Science Fiction'),
-    ( 'War','War (Anti-War)'),
-)
-
-QUALITY = (
-    ( '480p','480p'),
-    ( '720p','720p'),
-    ( '1080p','1080p'),
-    ( '4K','4K'),
-)
-
-RATING = (
-    ( '1','1'),
-    ( '2','2'),
-    ( '3','3'),
-    ( '4','4'),
-    ( '5','5'),
-    ( '6','7'),
-    ( '8','8'),
-    ( '9','9'),
-    ( '10','10'),
-)
-
-MCATEGORY = (
-     ( 'Bollywood','Bollywood'),
-     ( 'Hollywood','Hollywood'),
-     ( 'South','South'),
-)
-LANGUAGE = (
-    ( 'English','English'),
-    ( 'Hindi','Hindi'),
-    ( 'Punjabi','Punjabi'),
-    ( 'DualAudio','Dual Audio'),
-    ( 'MultiAudio','Multi Audio'),
+class Genere(models.Model):
+    genere_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    description =  models.TextField(blank=True)
    
-)
+    def __str__(self):
+        return self.genere_name
+ 
+
+class Quality(models.Model):
+    quality_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    description =  models.TextField(blank=True)
+   
+    def __str__(self):
+        return self.quality_name
+
+class Rating(models.Model):
+    rating_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    description =  models.TextField(blank=True)
+   
+    def __str__(self):
+        return self.rating_name
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    description =  models.TextField(blank=True)
+   
+    def __str__(self):
+        return self.category_name
+ 
+class Language(models.Model):
+    language_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    description =  models.TextField(blank=True)
+   
+    def __str__(self):
+        return self.language_name
+ 
+
+class Year(models.Model):
+    year_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    description =  models.TextField(blank=True)
+   
+    def __str__(self):
+        return self.year_name
+ 
 
 
 class Book_Category(models.Model):
     category_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
     description =  models.TextField(blank=True)
-
+   
     def __str__(self):
         return self.category_name
     
@@ -73,6 +70,7 @@ class Book_Category(models.Model):
 class Book_Subcategory(models.Model):
     subcategory_name = models.CharField(max_length=100)
     category=  models.ForeignKey(Book_Category, related_name='category',default=None, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, blank=True)
     description =  models.TextField(blank=True)
 
     def __str__(self):
@@ -83,6 +81,7 @@ class Book(models.Model):
     book_name = models.CharField(max_length=50)
     book_category = models.ForeignKey(Book_Category, related_name='book_category',default=None, on_delete=models.CASCADE)
     book_subcategory = models.ForeignKey(Book_Subcategory, related_name='book_subcategory',default=None, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, blank=True)
     book_description = models.TextField()
     book_author = models.CharField(max_length=100, default="",blank=True)
     book_url = models.CharField(max_length=500,blank=True)
@@ -95,12 +94,13 @@ class Book(models.Model):
 
 class Movie(models.Model):
     movie_name = models.CharField(max_length=100)
-    movie_genere = MultiSelectField(choices=GENERE)
-    movie_year = models.DateField(blank=True)
-    movie_quality =  models.CharField(max_length=50, choices=QUALITY)
-    movie_rating =  models.CharField(max_length=50, choices=RATING)
-    movie_category =  models.CharField(max_length=50, choices=MCATEGORY)
-    movie_language =  models.CharField(max_length=50, choices=LANGUAGE)
+    slug = models.SlugField(max_length=100, blank=True)
+    movie_genere = models.ForeignKey(Genere, related_name='movie_genere',default=None, on_delete=models.CASCADE)
+    movie_year = models.ForeignKey(Year, related_name='movie_year',default=None, on_delete=models.CASCADE)
+    movie_quality = models.ForeignKey(Quality, related_name='movie_quality',default=None, on_delete=models.CASCADE)
+    movie_rating = models.ForeignKey(Rating, related_name='movie_rating',default=None, on_delete=models.CASCADE)
+    movie_category =  models.ForeignKey(Category, related_name='movie_category',default=None, on_delete=models.CASCADE)
+    movie_language =  models.ForeignKey(Language, related_name='movie_language',default=None, on_delete=models.CASCADE)
     movie_description =models.TextField(blank=True)
     movie_url = models.CharField(max_length=500,blank=True)
     movie_image = models.ImageField(upload_to="app/images/movie", default="",blank=True)
@@ -108,12 +108,27 @@ class Movie(models.Model):
     def __str__(self):
         return self.movie_name
 
+class Series(models.Model):
+    series_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
+    series_genere =  models.ForeignKey(Genere, related_name='series_genere',default=None, on_delete=models.CASCADE)
+    series_year =  models.ForeignKey(Year, related_name='series_year',default=None, on_delete=models.CASCADE)
+    series_rating =   models.ForeignKey(Rating, related_name='series_rating',default=None, on_delete=models.CASCADE)
+    series_language =   models.ForeignKey(Language, related_name='series_language',default=None, on_delete=models.CASCADE)
+    series_description =models.TextField(blank=True)
+    series_url = models.CharField(max_length=500,blank=True)
+    series_image = models.ImageField(upload_to="app/images/series", default="",blank=True)
+
+    def __str__(self):
+        return self.series_name
+
 
 
 class Tutorial_Category(models.Model):
     category_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
     description =  models.TextField( blank=True)
-
+   
     def __str__(self):
         return self.category_name
     
@@ -131,8 +146,9 @@ class Tutorial(models.Model):
     tutorial_name = models.CharField(max_length=100)
     tutorial_category = models.ForeignKey(Tutorial_Category, related_name='tutoral_category',default=None, on_delete=models.CASCADE)
     tutorial_subcategory = models.ForeignKey(Tutorial_Subcategory, related_name='tutorial_subcategory',default=None, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, blank=True)
     tutorial_description =  models.TextField(blank=True)
-    tutorial_rating =  models.CharField(max_length=50, choices=RATING)
+    tutorial_rating =  models.ForeignKey(Rating, related_name='tutorial_rating',default=None, on_delete=models.CASCADE)
     tutorial_url =  models.CharField(max_length=500, blank=True)
     tutorial_image = models.ImageField(upload_to="app/images/tutorial", default="",blank=True)
 
@@ -143,6 +159,7 @@ class Tutorial(models.Model):
 
 class Software_Category(models.Model):
     category_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, blank=True)
     description =  models.TextField(blank=True)
 
     def __str__(self):
@@ -152,6 +169,7 @@ class Software_Category(models.Model):
 class Software_Subcategory(models.Model):
     subcategory_name = models.CharField(max_length=100)
     category=  models.ForeignKey(Software_Category, related_name='category',default=None, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, blank=True)
     description =  models.TextField(blank=True)
 
     def __str__(self):
@@ -162,8 +180,9 @@ class Software(models.Model):
     software_name = models.CharField(max_length=100)
     software_category = models.ForeignKey(Software_Category, related_name='software_category',default=None, on_delete=models.CASCADE)
     software_subcategory = models.ForeignKey(Software_Subcategory, related_name='software_subcategory',default=None, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=100, blank=True)
     software_description =  models.TextField(blank=True)
-    software_rating =  models.CharField(max_length=50, choices=RATING, blank=True)
+    software_rating =   models.ForeignKey(Rating, related_name='software_rating',default=None, on_delete=models.CASCADE)
     software_url =  models.CharField(max_length=500, blank=True)
     software_image = models.ImageField(upload_to="app/images/software", default="",blank=True)
 

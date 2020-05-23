@@ -78,41 +78,17 @@
           <div class="col-lg-4">
 
             <div class="sidebar">
-
-              <h3 class="sidebar-title">Other Categories</h3>
-              <div class="sidebar-item categories">
-                <ul>
-                  <li><a href="{% url 'ProgrammingwithC' %}">Programming with C <span>(25)</span></a></li>
-                  <li><a href="{% url 'ProgrammingwithC++' %}">Programming with C++  <span>(12)</span></a></li>
-                  <li><a href="{% url 'ProgrammingwithC#' %}">Programming with C#  <span>(5)</span></a></li>
-                  <li><a href="{% url 'ProgrammingwithJava' %}">Programming with Java <span>(22)</span></a></li>
-                  <li><a href="{% url 'ProgrammingwithPython' %}">Programming with Python  <span>(8)</span></a></li>
-                  <li><a href="{% url 'CompititiveBooks' %}">Compititive Books <span>(14)</span></a></li>
-                  <li><a href="{% url 'ComicsBooks' %}">Comics <span>(14)</span></a></li>
-                </ul>
-
-              </div><!-- End sidebar categories-->
-
-           <!--    
-               <h3 class="sidebar-title">Tags</h3>
+ 
+               <h3 class="sidebar-title">Other Categories</h3>
               <div class="sidebar-item tags">
                 <ul>
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
+                     {% for i in category  %}
+                  <li><a href="/softwares/subcategory/{{i.id}}">{{i.subcategory_name}}</a></li>
+                 {% endfor %}
+                  
                 </ul>
 
               </div>
-              -->
 
             </div><!-- End sidebar -->
 

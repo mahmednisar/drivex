@@ -42,129 +42,229 @@
           
            <li class="drop-down"><a href="">Books</a>
             <ul>
-               <li class="drop-down"><a href="#">Programming Books</a>
+                 {% for i in bookscategory  %}
+                  <li><a href="/books/subcategory/{{i.id}}">{{i.subcategory_name}}</a></li>
+                 {% endfor %}
+            <!--<li class="drop-down"><a href="#">Development</a>
                 <ul>
-                  <li><a href="{% url 'ProgrammingwithC' %}">Programming with C </a></li>
-                  <li><a href="{% url 'ProgrammingwithC++' %}">Programming with C++</a></li>
-                  <li><a href="{% url 'ProgrammingwithC#' %}">Programming with C#</a></li>
-                  <li><a href="{% url 'ProgrammingwithJava' %}">Programming With Java</a></li>
-                  <li><a href="{% url 'ProgrammingwithPython' %}">Programming With Python</a></li>
+                  <li><a href="{% url 'home' %}">Web Development</a></li>
+                  <li><a href="{% url 'home' %}">Data Science</a></li>
+                  <li><a href="{% url 'home' %}">Mobile Apps</a></li>
+                  <li><a href="{% url 'home' %}">Programming Languages</a></li>
+                  <li><a href="{% url 'home' %}">Game Development</a></li>
+                  <li><a href="{% url 'home' %}">Databases</a></li>
+                  <li><a href="{% url 'home' %}">Software Testing</a></li>
+                  <li><a href="{% url 'home' %}">Software Engineering</a></li>
+                  <li><a href="{% url 'home' %}">Development Tools</a></li>
+                  <li><a href="{% url 'home' %}">E-Commerce</a></li>
                 </ul>
               </li>
-              <li ><a href="{% url 'CompititiveBooks' %}">Compitition Books</a></li>
-             <li ><a href="{% url 'ComicsBooks' %}">Comics</a></li>
+            
+              <li class="drop-down"><a href="#">IT &  Softwares</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">IT Certification</a></li>
+                  <li><a href="{% url 'home' %}">Network & Security</a></li>
+                  <li><a href="{% url 'home' %}">Hardware</a></li>
+                  <li><a href="{% url 'home' %}">Operating Systems</a></li>
+                  <li><a href="{% url 'home' %}">Industry 4.0</a></li>
+                 
+                 
+                </ul>
+              </li>
+             
+               <li class="drop-down"><a href="#">Office Productivity</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">Microsoft</a></li>
+                  <li><a href="{% url 'home' %}">Apple</a></li>
+                  <li><a href="{% url 'home' %}">Google</a></li>
+                  <li><a href="{% url 'home' %}">SAP</a></li>
+                  <li><a href="{% url 'home' %}">Oracle</a></li>
+                  <li><a href="{% url 'home' %}">Other</a></li>
+                </ul>
+              </li>
+             
+             
+               <li class="drop-down"><a href="#">Design</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">Web Design</a></li>
+                  <li><a href="{% url 'home' %}">Graphic Design</a></li>
+                  <li><a href="{% url 'home' %}">Design Tools</a></li>
+                  <li><a href="{% url 'home' %}">User Experience</a></li>
+                  <li><a href="{% url 'home' %}">Game Design</a></li>
+                  <li><a href="{% url 'home' %}">Design Thinking</a></li>
+                  <li><a href="{% url 'home' %}">3D & Animations</a></li>
+                  <li><a href="{% url 'home' %}">Architectural Design</a></li>
+                  <li><a href="{% url 'home' %}">Interior Design</a></li>
+                </ul>
+              </li>
+             
+               <li class="drop-down"><a href="#">Teaching & Academics</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">Engineering</a></li>
+                  <li><a href="{% url 'home' %}">Mathematics</a></li>
+                  <li><a href="{% url 'home' %}">Science</a></li>
+                  <li><a href="{% url 'home' %}">Test Preparation</a></li>
+                   </ul>
+              </li>
+             -->   
              
             </ul>
           </li>
               <li class="drop-down"><a href="">Tutorials</a>
             <ul>
-             <li class="drop-down"><a href="#">Programming Tutorial</a>
+                {% for i in tutscategory  %}
+                  <li><a href="/tutorials/subcategory/{{i.id}}">{{i.subcategory_name}}</a></li>
+                 {% endfor %}
+<!--
+             <li class="drop-down"><a href="#">Development</a>
                 <ul>
-                  <li><a href="{% url 'tutorials' %}">Programming with C </a></li>
-                  <li><a href="{% url 'tutorials' %}">Programming with C++</a></li>
-                  <li><a href="{% url 'tutorials' %}">Programming With Java</a></li>
+                  <li><a href="{% url 'home' %}">Web Development</a></li>
+                  <li><a href="{% url 'home' %}">Data Science</a></li>
+                  <li><a href="{% url 'home' %}">Mobile Apps</a></li>
+                  <li><a href="{% url 'home' %}">Programming Languages</a></li>
+                  <li><a href="{% url 'home' %}">Game Development</a></li>
+                  <li><a href="{% url 'home' %}">Databases</a></li>
+                  <li><a href="{% url 'home' %}">Software Testing</a></li>
+                  <li><a href="{% url 'home' %}">Software Engineering</a></li>
+                  <li><a href="{% url 'home' %}">Development Tools</a></li>
+                  <li><a href="{% url 'home' %}">E-Commerce</a></li>
                 </ul>
               </li>
-             <li class="drop-down"><a href="#">Programming Tutorial</a>
+            
+              <li class="drop-down"><a href="#">IT &  Softwares</a>
                 <ul>
-                  <li><a href="{% url 'tutorials' %}">Programming with C </a></li>
-                  <li><a href="{% url 'tutorials' %}">Programming with C++</a></li>
-                  <li><a href="{% url 'tutorials' %}">Programming With Java</a></li>
+                  <li><a href="{% url 'home' %}">IT Certification</a></li>
+                  <li><a href="{% url 'home' %}">Network & Security</a></li>
+                  <li><a href="{% url 'home' %}">Hardware</a></li>
+                  <li><a href="{% url 'home' %}">Operating Systems</a></li>
+                  <li><a href="{% url 'home' %}">Industry 4.0</a></li>
+                 
                 </ul>
               </li>
+             
+               <li class="drop-down"><a href="#">Office Productivity</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">Microsoft</a></li>
+                  <li><a href="{% url 'home' %}">Apple</a></li>
+                  <li><a href="{% url 'home' %}">Google</a></li>
+                  <li><a href="{% url 'home' %}">SAP</a></li>
+                  <li><a href="{% url 'home' %}">Oracle</a></li>
+                  <li><a href="{% url 'home' %}">Other</a></li>
+                </ul>
+              </li>
+             
+             
+               <li class="drop-down"><a href="#">Design</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">Web Design</a></li>
+                  <li><a href="{% url 'home' %}">Graphic Design</a></li>
+                  <li><a href="{% url 'home' %}">Design Tools</a></li>
+                  <li><a href="{% url 'home' %}">User Experience</a></li>
+                  <li><a href="{% url 'home' %}">Game Design</a></li>
+                  <li><a href="{% url 'home' %}">Design Thinking</a></li>
+                  <li><a href="{% url 'home' %}">3D & Animations</a></li>
+                  <li><a href="{% url 'home' %}">Architectural Design</a></li>
+                  <li><a href="{% url 'home' %}">Interior Design</a></li>
+                </ul>
+              </li>
+             
+               <li class="drop-down"><a href="#">Teaching & Academics</a>
+                <ul>
+                  <li><a href="{% url 'home' %}">Engineering</a></li>
+                  <li><a href="{% url 'home' %}">Mathematics</a></li>
+                  <li><a href="{% url 'home' %}">Science</a></li>
+                  <li><a href="{% url 'home' %}">Test Preparation</a></li>
+                   </ul>
+              </li>
+             -->
              
             </ul>
           </li>
           <li class="drop-down"><a href="">Softwares</a>
             <ul>
-             <li ><a href="{% url 'softwares' %}">Operating System</a>    </li>
-             <li ><a href="{% url 'softwares' %}">Microsoft Licensed Softwares</a> </li>
-              <li><a href="{% url 'softwares' %}">Adobe Licensed Softwares</a> </li>
-             <li><a href="{% url 'softwares' %}">Essentials</a> </li>
-             
+                   {% for i in softwarescategory  %}
+                  <li><a href="/softwares/category/{{i.id}}">{{i.category_name}}</a></li>
+                 {% endfor %}
+                
             </ul>
           </li>
            <li class="drop-down"><a href="">Movies</a>
             <ul>
-             <li class="drop-down"><a href="#">Movies</a>
+             <li class="drop-down"><a href="#">Category</a>
                 <ul>
-                      <li><a href="{% url 'movies' %}">Latest Released</a></li>
-                      <li><a href="{% url 'movies' %}">Hollywood</a></li>
-                      <li><a href="{% url 'movies' %}">Bollywood</a></li>
-                      <li><a href="{% url 'movies' %}">Dual Audio</a></li>
-                      <li><a href="{% url 'movies' %}">Multi Audio</a></li>
-                      <li><a href="{% url 'movies' %}">English Movies</a></li>
-                      <li><a href="{% url 'movies' %}">Hindi Movies</a></li>
-                      <li><a href="{% url 'movies' %}">Punjabi Movies</a></li>
-                      <li><a href="{% url 'movies' %}">South Movies</a></li>
+                      {% for i in category  %}
+                  <li><a href="/movies/category/{{i.id}}">{{i.category_name}}</a></li>
+                 {% endfor %}
                 </ul>
               </li>
              <li class="drop-down"><a href="#">Genre</a>
                 <ul>
-                      <li><a href="{% url 'movies' %}">Action</a></li>
-                      <li><a href="{% url 'movies' %}">Adventure</a></li>
-                      <li><a href="{% url 'movies' %}">Animated</a></li>
-                      <li><a href="{% url 'movies' %}">Comedy</a></li>
-                      <li><a href="{% url 'movies' %}">Crime</a></li>
-                      <li><a href="{% url 'movies' %}">Fantsy</a></li>
-                      <li><a href="{% url 'movies' %}">Horror</a></li>
-                      <li><a href="{% url 'movies' %}">Mistery</a></li>
-                      <li><a href="{% url 'movies' %}">Sci-Fi</a></li>
-                      <li><a href="{% url 'movies' %}">Romance</a></li>
-                      <li><a href="{% url 'movies' %}">Thriller</a></li>
+                   {% for i in genere  %}
+                  <li><a href="/movies/genere/{{i.id}}">{{i.genere_name}}</a></li>
+                 {% endfor %}
                 </ul>
               </li>
              <li class="drop-down"><a href="#">Year</a>
                 <ul>
-                      <li><a href="{% url 'movies' %}">2020-2016</a></li>
-                      <li><a href="{% url 'movies' %}">2015-2011</a></li>
-                      <li><a href="{% url 'movies' %}">2010-2006</a></li>
-                      <li><a href="{% url 'movies' %}">2005-2001</a></li>
-                      <li><a href="{% url 'movies' %}">2000-1996</a></li>
-                      <li><a href="{% url 'movies' %}">1995-1991</a></li>
-                      <li><a href="{% url 'movies' %}">1990-1986</a></li>
-                      <li><a href="{% url 'movies' %}">1985-1981</a></li>
-                      <li><a href="{% url 'movies' %}">1980-1976</a></li>
-                      <li><a href="{% url 'movies' %}">1975-1971</a></li>
+                    {% for i in year  %}
+                  <li><a href="/movies/year/{{i.id}}">{{i.year_name}}</a></li>
+                 {% endfor %}
                 </ul>
               </li>
              <li class="drop-down"><a href="#">Quality</a>
                 <ul>
-                      <li><a href="{% url 'movies' %}">480p Movies</a></li>
-                      <li><a href="{% url 'movies' %}">720p Movies</a></li>
-                      <li><a href="{% url 'movies' %}">1080p Movies</a></li>
-                      <li><a href="{% url 'movies' %}">4K UHD</a></li>
+                      {% for i in quality  %}
+                  <li><a href="/movies/quality/{{i.id}}">{{i.quality_name}}</a></li>
+                 {% endfor %}
                 </ul>
               </li>
-             <li class="drop-down"><a href="#">TV Series</a>
-                <ul>
-                     <li><a href="{% url 'movies' %}">Action</a></li>
-                      <li><a href="{% url 'movies' %}">Adventure</a></li>
-                      <li><a href="{% url 'movies' %}">Animated</a></li>
-                      <li><a href="{% url 'movies' %}">Comedy</a></li>
-                      <li><a href="{% url 'movies' %}">Crime</a></li>
-                      <li><a href="{% url 'movies' %}">Drama</a></li>
-                      <li><a href="{% url 'movies' %}">Horror</a></li>
-                      <li><a href="{% url 'movies' %}">Mistery</a></li>
-                      <li><a href="{% url 'movies' %}">Sci-Fi</a></li>
-                      <li><a href="{% url 'movies' %}">Romance</a></li>
-                      <li><a href="{% url 'movies' %}">Thriller</a></li>
-                </ul>
-              </li>
-                  <li><a href="{% url 'movies' %}">Web Series</a></li>
+             
                  <li class="drop-down"><a href="#">Rating</a>
                 <ul>
-                     <li><a href="{% url 'movies' %}">Movies By 1-3 Star</a></li>
-                     <li><a href="{% url 'movies' %}">Movies By 4-6 Star</a></li>
-                     <li><a href="{% url 'movies' %}">Movies By 7-10 Star</a></li>
-                     <li><a href="{% url 'movies' %}">Series By 1-3 Star</a></li>
-                     <li><a href="{% url 'movies' %}">Series By 4-6 Star</a></li>
-                     <li><a href="{% url 'movies' %}">Series By 7-10 Star</a></li>
+                     {% for i in rating  %}
+                  <li><a href="/movies/rating/{{i.id}}">{{i.rating_name}}</a></li>
+                 {% endfor %}
+                    
+                </ul>
+              </li>        
+                <li class="drop-down"><a href="#">Language</a>
+                <ul>
+                    {% for i in language  %}
+                  <li><a href="/movies/language/{{i.id}}">{{i.language_name}}</a></li>
+                 {% endfor %}
                     
                 </ul>
               </li>
            
              
+            </ul>
+          </li>
+          <li class="drop-down"><a href="">TV Series/ Web Series</a>
+            <ul>
+            
+             <li class="drop-down"><a href="#">Genre</a>
+                <ul>
+                   {% for i in genere  %}
+                  <li><a href="/series/genere/{{i.id}}">{{i.genere_name}}</a></li>
+                 {% endfor %}
+                </ul>
+              </li>
+             <li class="drop-down"><a href="#">Year</a>
+                <ul>
+                    {% for i in year  %}
+                  <li><a href="/series/year/{{i.id}}">{{i.year_name}}</a></li>
+                 {% endfor %}
+                </ul>
+              </li>
+                 <li class="drop-down"><a href="#">Rating</a>
+                <ul>
+                     {% for i in rating  %}
+                  <li><a href="/series/rating/{{i.id}}">{{i.rating_name}}</a></li>
+                 {% endfor %}
+                    
+                </ul>
+              </li>        
+               
             </ul>
           </li>
          
@@ -210,10 +310,10 @@
           <div class="col-lg-4 col-md-6 footer-contact">
             <h4>Contact Us</h4>
                <div class="social-links mt-3">
-              <a href="https://twitter.com/{{user}}" target="_blank" class="twitter"><i class="bx bxl-twitter '"></i></a>
-              <a href="https://linkedin.com/in/{{user}}" target="_blank" class="facebook"><i class="bx bxl-linkedin '"></i></a>
-              <a href="https://instagram.com/{{user}}" target="_blank" class="instagram"><i class="bx bxl-instagram '"></i></a>
-              <a href="https://t.me/{{user}}" target="_blank" class="linkedin"><i class="bx bxl-telegram '"></i></a>
+              <a href="https://twitter.com/mahmednisar" target="_blank" class="twitter"><i class="bx bxl-twitter '"></i></a>
+              <a href="https://linkedin.com/in/mahmednisar" target="_blank" class="facebook"><i class="bx bxl-linkedin '"></i></a>
+              <a href="https://instagram.com/mahmednisar" target="_blank" class="instagram"><i class="bx bxl-instagram '"></i></a>
+              <a href="https://t.me/mahmednisar" target="_blank" class="linkedin"><i class="bx bxl-telegram '"></i></a>
                 <a href="https://mailto:anisar840@gmail.com" target="_blank" class="email" ><i class='bx bx-mail-send  ' ></i></a><br>
             </div>
            
@@ -227,7 +327,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy;{{ year }} <strong><span>Drive Links</span></strong>. All Rights Reserved
+        &copy; <script> document.write(new Date().getFullYear()); </script><strong><span> Drive Links</span></strong>. All Rights Reserved
       </div>
       
     </div>

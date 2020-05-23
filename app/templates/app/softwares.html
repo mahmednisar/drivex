@@ -29,7 +29,6 @@
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
           
-           {{heading}} - {{title}}
         </div>
 
       </div>
@@ -51,13 +50,13 @@
         </div>
           </div>
     </section><!-- End Services Section -->
-
+    
        <nav aria-label="Page navigation mb-5">
           <div class="pagination justify-content-center mb-5">
             <span class="step-links">
                 {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    <a href="?page=1">&laquo; <i class="icofont-dotted-left"></i></a>&nbsp;
+                    <a href="?page={{ page_obj.previous_page_number }}"><i class="icofont-rounded-left"></i></a>
                 {% endif %}
 
                 <span class="current">
@@ -65,8 +64,8 @@
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}"><i class="icofont-rounded-right"></i></a>&nbsp;
+                    <a href="?page={{ page_obj.paginator.num_pages }}"><i class="icofont-dotted-right"></i> &raquo;</a>
                 {% endif %}
             </span>
         </div>
